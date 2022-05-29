@@ -1,0 +1,42 @@
+section{
+    width: 100%;
+    height: 90vh;
+    position: relative;
+    right: 0;
+}
+
+section video{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+
+.perfil-image{
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.perfil-image p{
+    margin: 20px;
+    font-size: 24px;
+}
+
+.escuro{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.perfil-image img{
+    border-radius: 50%;
+}

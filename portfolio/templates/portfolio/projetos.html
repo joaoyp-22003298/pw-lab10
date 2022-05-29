@@ -1,0 +1,58 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    <h1>Projetos:</h1>
+
+    <div class="projetos">
+      <div style="text-align: center">
+        <h2>Line Follower Robot</h2>
+          <br>
+          <p>
+              Line Follower Robot foi um projeto para demonstração aos alunos da
+              Escola Secundária da Amadora. Este projeto, desde o brainstorm da montagem
+              (para uma melhor eficiência), o processo da mesma e a programação do robô, foi feito em mais ou menos 1 mês.
+              Foi utilizado o software oficial da Lego para a programação do robô usando
+              blocos ao estilo Scratch para a sua lógica.
+              <br> <br> 2017 / 2018
+          </p>
+          {% load static %}
+          <img src="{% static 'portfolio/images/robo.png' %}" alt="robo"
+               style="margin-top: 20px">
+      </div>
+      <div style="text-align: center">
+        <h2>
+            Agriduino Project
+        </h2>
+          <br>
+          <p>
+              Agriduino Project, foi o Projecto de Aptidão Profissional (PAP)
+              com o Arduino para criar uma rega automática de rabanetes.
+              Foram usados sensores de luz, temperatura e humidade do solo para controlar
+              os valores da plantação.
+              Usei LED's para simular motores e válvulas da bomba de água e de um toldo.
+              Utilizei também um módulo ESP8266 Wifi, para transmitir os dados
+              recebidos pelos sensores para um site de maneira a que o dono
+              consiguisse controlar a plantação à distância.
+              <br> <br> 2017 / 2018
+          <br>
+          {% load static %}
+          <img src="{% static 'portfolio/images/agriduino.png' %}" alt="agriduino"
+               style="margin-top: 20px">
+      </div>
+
+      <div style="text-align: center">
+        <h2>Deisi Great Game</h2>
+          <br>
+          <p>
+              DEISI Great Game foi uma espécie de jogo da glória feito como projeto final
+              da cadeira de LP2 no 2º ano - 1º Semestre.
+              O projeto foi feito em Java com módulos em Kotlin (programação funcional).
+              <br> <br> 2021 / 2022
+          </p>
+          {% load static %}
+          <img src="{% static 'portfolio/images/deisiGreatGame.png' %}" alt="deisiGreatGame"
+               style="margin-top: 20px;">
+      </div>
+    </div>
+
+{% endblock %}

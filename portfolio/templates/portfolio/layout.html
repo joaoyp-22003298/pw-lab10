@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Laboratório 10 - Portfólio</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/layout.css' %}">
+    <link rel="stylesheet" href="{% static 'portfolio/css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'portfolio/css/blog.css' %}">
+    <link rel="stylesheet" href="{% static 'portfolio/css/quizz.css' %}">
+    <link rel="stylesheet" href="{% static 'portfolio/css/login.css' %}">
+    <style>
+        body{
+            {% load static %}
+            background-image: url("{% static 'portfolio/images/background.jpg' %}");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+  <header>
+    <div>
+        João Yp
+    </div>
+    <nav>
+        <a href="{% url 'portfolio:home' %}">Home</a>
+        <a href="{% url 'portfolio:apresentacao' %}">Apresentação</a>
+        <a href="{% url 'portfolio:blog' %}">Blog</a>
+        <a href="{% url 'portfolio:quizz' %}">Quizz</a>
+        <a href="{% url 'portfolio:licenciatura' %}">Licenciatura</a>
+        <a href="{% url 'portfolio:projetos' %}">Projetos</a>
+        <a href="{% url 'portfolio:competencias' %}">Competências</a>
+        <a href="{% url 'portfolio:formacao' %}">Formação</a>
+    </nav>
+      {% if request.user.is_authenticated %}
+          <button class="login-user"><a href="{% url 'portfolio:logout' %}">Logout</a></button>
+      {% else %}
+          <button class="login-user"><a href="{% url 'portfolio:login' %}">Login</a></button>
+      {% endif %}
+  </header>
+  <main>
+      {% block main %}
+
+      {% endblock main %}
+  </main>
+  <footer>
+      <p>Contacto:</p>
+      <u><a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=joaomayp@gmail.com&su=&body=&tf=1" target="_blank">joaomayp@gmail.com</a></u>
+      - ULHT, 2022
+  </footer>
+</body>
+</html>

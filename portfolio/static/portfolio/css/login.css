@@ -1,0 +1,14 @@
+.formLogin{
+    text-align: center;
+    padding: 10px;
+}
+
+.formLogin input{
+    margin-top: 10px;
+}
+
+.msg-erro{
+    margin-top: 10px;
+    text-align: center;
+    color: red;
+}

@@ -1,0 +1,23 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    <style>
+        main{
+          padding: 0;
+        }
+    </style>
+    <section>
+        {% load static %}
+        <video src="{% static 'portfolio/images/hero.mp4' %}" muted autoplay loop></video>
+        <div class = "escuro"></div>
+        <div class = "perfil-image">
+            {% load static %}
+            <img src="{% static 'portfolio/images/perfil.png' %}" alt="perfil">
+            <p>
+                Olá! Chamo-me João Yp, tenho {{ anos }} anos e sou estudante de Engenharia Informática na Universide Lusófona em Lisboa!
+            </p>
+        </div>
+    </section>
+
+
+{% endblock %}

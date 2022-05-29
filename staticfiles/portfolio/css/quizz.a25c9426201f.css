@@ -1,0 +1,71 @@
+.estiloField{
+    background-color: rgba(204, 204, 204, 0.49);
+    width: fit-content;
+    height: fit-content;
+    border-radius: 10px;
+    float: left;
+    margin-bottom: 100px;
+}
+
+.estiloField legend{
+    text-align: center;
+}
+
+.estiloField div{
+    padding: 2px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tituloPergunta{
+    margin: 10px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.pergunta{
+    margin: 10px;
+}
+
+.estiloNome{
+    background-color: rgba(255, 0, 0, 0);
+}
+
+.capGlobal{
+    background-color: rgba(0, 0, 255, 0);
+}
+
+.capHTML{
+    background-color: rgba(95, 225, 10, 0);
+}
+
+.capCSS{
+    background-color: rgba(215, 171, 8, 0);
+}
+
+.capPython{
+    background-color: rgba(142, 17, 189, 0);
+}
+
+.capDjango{
+    background-color: rgba(255, 255, 255, 0);
+}
+
+input[type=submit]{
+    width: fit-content;
+    background-color: #1a1a1a;
+    border-radius: 30px;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.grafico{
+    float: right;
+    height: fit-content;
+    width: fit-content;
+    margin-right: 100px;
+    transform: translateY(35%);
+}

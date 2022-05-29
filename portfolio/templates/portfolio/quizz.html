@@ -1,0 +1,104 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    <fieldset class="estiloField">
+        <legend>
+            Quizz - PW
+        </legend>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="estiloNome">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" placeholder="Nome:"><br>
+            </div>
+
+            <div class="capGlobal">
+                <h3 class="tituloPergunta">
+                    Pergunta Geral:
+                </h3>
+                <p class="pergunta">
+                    1 - Que tecnologia em Programação Web é usada em Front-End development?
+                </p>
+                <input type="radio" id="javascript" name="p1" value="javascript">
+                <label for="javascript">JavaScript</label><br>
+                <input type="radio" id="html" name="p1" value="html">
+                <label for="html">HTML</label><br>
+                <input type="radio" id="css" name="p1" value="css">
+                <label for="css">CSS</label><br>
+                <input type="radio" id="django" name="p1" value="django">
+                <label for="django">Django</label><br>
+                <input type="radio" id="python" name="p1" value="python">
+                <label for="python">Python</label><br>
+            </div>
+
+            <div class="capHTML">
+                <h3 class="tituloPergunta">
+                    Pergunta de HTML:
+                </h3>
+                <p class="pergunta">
+                    2 - Que nome se dá ao conjunto das palavras seguintes em HTML? - [header, nav, main, article, section, aside, footer]
+                </p>
+                <input type="radio" id="elementosSemanticos" name="p2" value="Elementos_Semanticos">
+                <label for="elementosSemanticos">Elementos Semânticos</label><br>
+                <input type="radio" id="elementosAgrupadores" name="p2" value="Elementos_Agrupadores">
+                <label for="elementosAgrupadores">Elementos Agrupadores</label><br>
+                <input type="radio" id="seletoresUniversais" name="p2" value="Seletores_Universais">
+                <label for="seletoresUniversais">Seletores Universais</label><br>
+            </div>
+
+            <div class="capCSS">
+                <h3 class="tituloPergunta">
+                    Pergunta de CSS:
+                </h3>
+                <p class="pergunta">
+                    3 - Em CSS, "margin: Apx, Bpx, Cpx, Dpx;" em que ordem o objeto é movido?
+                </p>
+                <input type="radio" id="top-left-bot-right" name="p3" value="TopLeftBotRight">
+                <label for="top-left-bot-right">Top(A), Left(B), Bottom(C), Right(D)</label><br>
+                <input type="radio" id="top-bot-left-right" name="p3" value="TopBotLeftRight">
+                <label for="top-bot-left-right">Top(A), Bottom(B), Left(C), Right(D)</label><br>
+                <input type="radio" id="top-right-bot-left" name="p3" value="TopRightBotLeft">
+                <label for="top-right-bot-left">Top(A), Right(B), Bottom(C), Left(D)</label><br>
+            </div>
+
+            <div class="capPython">
+                <h3 class="tituloPergunta">
+                    Pergunta de Python:
+                </h3>
+                <p class="pergunta">
+                    4 - Como se define uma função em Python?
+                </p>
+                <input type="radio" id="createFun" name="p4" value="create_Function">
+                <label for="createFun">create functionName():</label><br>
+                <input type="radio" id="funFun" name="p4" value="fun_Function">
+                <label for="funFun">fun functionName():</label><br>
+                <input type="radio" id="defFun" name="p4" value="def_Function">
+                <label for="defFun">def functioName():</label><br>
+                <input type="radio" id="publicFun" name="p4" value="public_Function">
+                <label for="publicFun">public [type] functionName():</label><br>
+            </div>
+
+            <div class="capDjango">
+                <h3 class="tituloPergunta">
+                    Pergunta de Django:
+                </h3>
+                <p class="pergunta">
+                    5 - Em Django, qual é a rota correta para renderizar uma página HTML?
+                </p>
+                <input type="radio" id="confUrlViewHtml" name="p5" value="conf_url_view_html">
+                <label for="confUrlViewHtml">config.urls > app.urls > app.views > página html</label><br>
+                <input type="radio" id="confViewUrlHtml" name="p5" value="conf_view_url_html">
+                <label for="confViewUrlHtml">config.urls > app.views > app.urls > página html</label><br>
+                <input type="radio" id="viewUrlConfHtml" name="p5" value="view_url_conf_html">
+                <label for="viewUrlConfHtml">app.views > app.urls > config.urls > página html</label><br>
+            </div>
+            <div class="btn-submit">
+                <input type="submit" value="Submit"> <!-- Pôr um button com um certo verde -->
+            </div>
+        </form>
+    </fieldset>
+    <div class="grafico">
+        {% load static %}
+        <img src="{% static 'portfolio/images/graf.png' %}" alt="graf">
+    </div>
+{% endblock %}

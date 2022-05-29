@@ -1,0 +1,42 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+	<h3>Blog</h3>
+    <a href="{% url 'portfolio:novoPost' %}" class="newPostBegin">
+        <button class="buttonNewPostBegin">
+            New Post (+)
+        </button>
+    </a>
+
+    <div class = "posts">
+        {% for post in posts %}
+            <div class = "post">
+                <!--<p>
+                    {{ post.titulo }} : {{ post.autor }} - {{ post.data }}
+                    <br> {{ post.descricao }}
+                </p>-->
+                <h2 class = "tituloPost">
+                    {{ post.titulo }}
+                </h2>
+                <p class = "descPost">
+                    {{ post.descricao }}
+                </p>
+                <p class = "dataPost">
+                    {{ post.data.day }}/{{ post.data.month }}/{{ post.data.year }}
+                </p>
+                <p class = "autorPost">
+                    {{ post.autor }} -
+                </p>
+                <div class = "managePost">
+                    <u><a href="{% url 'portfolio:editarPost' post.id %}">Edit</a></u>
+                    <u><a href="{% url 'portfolio:apagarPost' post.id %}">Delete</a></u>
+                </div>
+            </div>
+        {% endfor %}
+            <a href="{% url 'portfolio:novoPost' %}" class="newPostEnd">
+                <button class="buttonNewPostEnd">
+                    New Post (+)
+                </button>
+            </a>
+    </div>
+{% endblock %}

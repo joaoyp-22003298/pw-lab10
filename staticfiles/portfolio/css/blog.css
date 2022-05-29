@@ -1,0 +1,90 @@
+.posts{
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 100px;
+}
+
+.post{
+    margin-left: 40px;
+    margin-top: 25px;
+    background-color: transparent;
+    width: 300px;
+    color: black;
+    height: fit-content;
+    word-wrap: break-word;
+    max-width: 400px;
+    border-top: 10px ridge rgba(0, 0, 0, 0.76);
+    border-bottom: 10px ridge rgba(0, 0, 0, 0.76);
+    border-radius: 40px 0 40px 0;
+}
+
+.newPostBegin{
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+}
+
+.newPostEnd{
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+}
+
+.tituloPost{
+    text-align: center;
+}
+
+.descPost{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.autorPost{
+    float: right;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+.dataPost{
+    float: right;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+.managePost{
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.managePost a{
+    text-decoration: none;
+    color: black;
+}
+
+.buttonNewPostBegin{
+  background-color: rgb(5, 5, 5);
+  border-radius: 30px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 40px 2px;
+  cursor: pointer;
+}
+
+.buttonNewPostEnd{
+    background-color: black;
+    color: #ffffff;
+    padding: 15px 32px;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 30px 100px;
+    cursor: pointer;
+    height: 80%;
+}
