@@ -5,7 +5,7 @@
         <legend>
             Quizz - PW
         </legend>
-        <form method="POST">
+        <form method="POST" class="formQuizz">
             {% csrf_token %}
             <div class="estiloNome">
                 <label for="nome">Nome:</label>
@@ -95,10 +95,10 @@
             <div class="btn-submit">
                 <input type="submit" value="Submit"> <!-- Pôr um button com um certo verde -->
             </div>
+            <div class = "grafico">
+                {% load static %}
+                <img src="data:image/png;base64,{{ data }}" alt="">
+            </div>
         </form>
     </fieldset>
-    <div class="grafico">
-        {% load static %}
-        <img src="data:image/png;base64,{{ data }}" alt="">
-    </div>
 {% endblock %}

@@ -3,18 +3,26 @@
     width: fit-content;
     height: fit-content;
     border-radius: 10px;
-    float: left;
-    margin-bottom: 100px;
 }
 
 .estiloField legend{
     text-align: center;
 }
 
+.estiloField .grafico{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
 .estiloField div{
     padding: 2px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.estiloField .btn-submit{
+    text-align: center;
 }
 
 .tituloPergunta{
@@ -60,12 +68,4 @@ input[type=submit]{
     text-decoration: none;
     cursor: pointer;
     margin-top: 20px;
-}
-
-.grafico{
-    float: right;
-    height: fit-content;
-    width: fit-content;
-    margin-right: 100px;
-    transform: translateY(35%);
 }
