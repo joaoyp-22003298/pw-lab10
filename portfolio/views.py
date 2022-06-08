@@ -1,14 +1,17 @@
+import base64
 import datetime
+import io
+import urllib
+
 import matplotlib
+from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
-from django.urls import reverse
 from django.shortcuts import render
+from django.urls import reverse
+from matplotlib import pyplot as plt
+
 from .forms import PostForm
 from .models import Post, PontuacaoQuizz
-from matplotlib import pyplot as plt
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
-
 
 matplotlib.use('Agg')
 
@@ -50,7 +53,6 @@ def formacao_view(request):
 
 
 def login_view(request):
-
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -75,8 +77,8 @@ def logout_view(request):
     logout(request)
 
     return render(request, 'portfolio/login.html', {
-                'message': 'Obrigado pela visita!'
-            })
+        'message': 'Obrigado pela visita!'
+    })
 
 
 def novoPost_view(request):
@@ -109,6 +111,34 @@ def apagarPost_view(request, post_id):
     return HttpResponseRedirect(reverse('portfolio:blog'))
 
 
+def desenha_grafico_resultados():
+    pontuacoes = PontuacaoQuizz.objects.all().order_by('pontuacao')
+    lista_nomes = []
+    lista_pontuacao = []
+
+    for person in pontuacoes:
+        lista_nomes.append(person.nome)
+        lista_pontuacao.append(person.pontuacao)
+
+    plt.barh(lista_nomes, lista_pontuacao)
+    plt.ylabel("Pontuação")
+    plt.savefig('portfolio/static/portfolio/images/graf.png', bbox_inches='tight')
+
+    plt.autoscale()
+
+    fig = plt.gcf()
+    plt.close()
+
+    buf = io.BytesIO()
+    fig.savefig(buf, format='png')
+
+    buf.seek(0)
+    string = base64.b64encode(buf.read())
+    uri = urllib.parse.quote(string)
+
+    return uri
+
+
 def pontuacao_quizz(request):
     score = 0
     if request.POST['p1'] == 'javascript':
@@ -136,19 +166,8 @@ def quizz_view(request):
         r = PontuacaoQuizz(nome=n, pontuacao=p)
         r.save()
 
-    desenha_grafico_resultados(request)
-    return render(request, 'portfolio/quizz.html')
+        context = {
+            'data': desenha_grafico_resultados(),
+        }
 
-
-def desenha_grafico_resultados(request):
-    pontuacoes = PontuacaoQuizz.objects.all()
-    pontuacao_sorted = sorted(pontuacoes, key=lambda objeto: objeto.pontuacao, reverse=False)
-    lista_nomes = []
-    lista_pontuacao = []
-
-    for person in pontuacao_sorted:
-        lista_nomes.append(person.nome)
-        lista_pontuacao.append(person.pontuacao)
-
-    plt.barh(lista_nomes, lista_pontuacao)
-    plt.savefig('portfolio/static/portfolio/images/graf.png', bbox_inches='tight')
+    return render(request, 'portfolio/quizz.html', context)
