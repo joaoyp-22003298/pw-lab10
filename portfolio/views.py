@@ -166,7 +166,7 @@ def quizz_view(request):
         r = PontuacaoQuizz(nome=n, pontuacao=p)
         r.save()
 
-        context = {
+    context = {
             'data': desenha_grafico_resultados(request),
         }
 
