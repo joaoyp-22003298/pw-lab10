@@ -111,7 +111,7 @@ def apagarPost_view(request, post_id):
     return HttpResponseRedirect(reverse('portfolio:blog'))
 
 
-def desenha_grafico_resultados():
+def desenha_grafico_resultados(request):
     pontuacoes = PontuacaoQuizz.objects.all().order_by('pontuacao')
     lista_nomes = []
     lista_pontuacao = []
@@ -167,7 +167,7 @@ def quizz_view(request):
         r.save()
 
         context = {
-            'data': desenha_grafico_resultados(),
+            'data': desenha_grafico_resultados(request),
         }
 
     return render(request, 'portfolio/quizz.html', context)
