@@ -1,0 +1,20 @@
+.btn-novaCadeira{
+    margin-top: 20px;
+}
+
+.btn-novaCadeira a{
+    text-decoration: none;
+}
+
+.btn-novaCadeira button{
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 36px;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 2px;
+    background-color: black;
+    height: 50px;
+    width: 50px;
+}

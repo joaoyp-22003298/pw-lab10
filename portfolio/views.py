@@ -5,6 +5,7 @@ import urllib
 
 import matplotlib
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
@@ -15,6 +16,9 @@ from .models import Post, PontuacaoQuizz
 
 matplotlib.use('Agg')
 
+
+# if not request.user.is_authenticated:
+#   return HttpResponseRedirect(reverse('portfolio:login'))
 
 def home_view(request):
     hoje = datetime.date.today()
@@ -28,7 +32,14 @@ def home_view(request):
 
 
 def apresentacao_view(request):
-    return render(request, 'portfolio/apresentacao.html')
+    hoje = datetime.date.today()
+    nasc = datetime.date(1998, 7, 7)
+    anos = (hoje - nasc).days // 365
+
+    context = {
+        'anos': anos
+    }
+    return render(request, 'portfolio/apresentacao.html', context)
 
 
 def blog_view(request):
@@ -167,7 +178,35 @@ def quizz_view(request):
         r.save()
 
     context = {
-            'data': desenha_grafico_resultados(request),
-        }
+        'data': desenha_grafico_resultados(request),
+    }
 
     return render(request, 'portfolio/quizz.html', context)
+
+
+def novaCadeira_view(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('portfolio:login'))
+
+    return render(request, 'portfolio/novaCadeira.html')
+
+
+def novoProjeto_view(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('portfolio:login'))
+
+    return render(request, 'portfolio/novoProjeto.html')
+
+
+def editarCadeira_view(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('portfolio:login'))
+
+    return render(request, 'portfolio/editarCadeira.html')
+
+
+def editarProjeto_view(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('portfolio:login'))
+
+    return render(request, 'portfolio/editarProjeto.html')

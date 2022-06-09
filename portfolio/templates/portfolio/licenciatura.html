@@ -3,6 +3,12 @@
 {% block main %}
     <h1>Listagem de 3 cadeiras de Eng. Informática:</h1>
 
+    <div class="btn-novaCadeira">
+        <a href="{% url 'portfolio:novaCadeira' %}">
+            <button> + </button>
+        </a>
+    </div>
+
     <div class="container">
       <div>
         <h2>Algoritmia e Estruturas de Dados</h2>

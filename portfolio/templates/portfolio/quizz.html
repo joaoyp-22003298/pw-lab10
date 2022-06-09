@@ -17,7 +17,7 @@
                     Pergunta Geral:
                 </h3>
                 <p class="pergunta">
-                    1 - Que tecnologia em Programação Web é usada para criar scripts em front-end?
+                   🔹 1 - Que tecnologia em Programação Web é usada para criar scripts em front-end?
                 </p>
                 <input type="radio" id="javascript" name="p1" value="javascript">
                 <label for="javascript">JavaScript</label><br>
@@ -36,7 +36,7 @@
                     Pergunta de HTML:
                 </h3>
                 <p class="pergunta">
-                    2 - Que nome se dá ao conjunto das palavras seguintes em HTML? - [header, nav, main, article, section, aside, footer]
+                    🔹 2 - Que nome se dá ao conjunto das palavras seguintes em HTML? - [header, nav, main, article, section, aside, footer]
                 </p>
                 <input type="radio" id="elementosSemanticos" name="p2" value="Elementos_Semanticos">
                 <label for="elementosSemanticos">Elementos Semânticos</label><br>
@@ -51,7 +51,7 @@
                     Pergunta de CSS:
                 </h3>
                 <p class="pergunta">
-                    3 - Em CSS, "margin: Apx, Bpx, Cpx, Dpx;" em que ordem o objeto é movido?
+                    🔹 3 - Em CSS, "margin: Apx, Bpx, Cpx, Dpx;" em que ordem o objeto é movido?
                 </p>
                 <input type="radio" id="top-left-bot-right" name="p3" value="TopLeftBotRight">
                 <label for="top-left-bot-right">Top(A), Left(B), Bottom(C), Right(D)</label><br>
@@ -66,7 +66,7 @@
                     Pergunta de Python:
                 </h3>
                 <p class="pergunta">
-                    4 - Como se define uma função em Python?
+                    🔹 4 - Como se define uma função em Python?
                 </p>
                 <input type="radio" id="createFun" name="p4" value="create_Function">
                 <label for="createFun">create functionName():</label><br>
@@ -83,7 +83,7 @@
                     Pergunta de Django:
                 </h3>
                 <p class="pergunta">
-                    5 - Em Django, qual é a rota correta para renderizar uma página HTML?
+                    🔹 5 - Em Django, qual é a rota correta para renderizar uma página HTML?
                 </p>
                 <input type="radio" id="confUrlViewHtml" name="p5" value="conf_url_view_html">
                 <label for="confUrlViewHtml">config.urls > app.urls > app.views > página html</label><br>
@@ -95,10 +95,12 @@
             <div class="btn-submit">
                 <input type="submit" value="Submit"> <!-- Pôr um button com um certo verde -->
             </div>
-            <div class = "grafico">
-                {% load static %}
-                <img src="data:image/png;base64,{{ data }}" alt="">
-            </div>
         </form>
     </fieldset>
+    <div class = "grafico">
+        {% load static %}
+        <img src="data:image/png;base64,{{ data }}" alt="">
+    </div>
+    <br>
+    <br>
 {% endblock %}
