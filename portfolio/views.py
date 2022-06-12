@@ -11,8 +11,8 @@ from django.shortcuts import render
 from django.urls import reverse
 from matplotlib import pyplot as plt
 
-from .forms import PostForm
-from .models import Post, PontuacaoQuizz
+from .forms import PostForm, ProjetoForm, CadeiraForm
+from .models import Post, PontuacaoQuizz, Projeto, Cadeira
 
 matplotlib.use('Agg')
 
@@ -48,7 +48,8 @@ def blog_view(request):
 
 
 def licenciatura_view(request):
-    return render(request, 'portfolio/licenciatura.html')
+    context = {'cadeiras': Cadeira.objects.all()}
+    return render(request, 'portfolio/licenciatura.html', context)
 
 
 def competencias_view(request):
@@ -56,7 +57,8 @@ def competencias_view(request):
 
 
 def projetos_view(request):
-    return render(request, 'portfolio/projetos.html')
+    context = {'projetos': Projeto.objects.all()}
+    return render(request, 'portfolio/projetos.html', context)
 
 
 def formacao_view(request):
@@ -188,25 +190,73 @@ def novaCadeira_view(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('portfolio:login'))
 
-    return render(request, 'portfolio/novaCadeira.html')
+    form = CadeiraForm(request.POST, request.FILES or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:licenciatura'))
+
+    context = {'form': form}
+
+    return render(request, 'portfolio/novaCadeira.html', context)
 
 
 def novoProjeto_view(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('portfolio:login'))
 
-    return render(request, 'portfolio/novoProjeto.html')
+    form = ProjetoForm(request.POST, request.FILES or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:projetos'))
+
+    context = {'form': form}
+
+    return render(request, 'portfolio/novoProjeto.html', context)
 
 
-def editarCadeira_view(request):
+def editarCadeira_view(request, cadeira_id):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('portfolio:login'))
 
-    return render(request, 'portfolio/editarCadeira.html')
+    cadeira = Cadeira.objects.get(id=cadeira_id)
+    form = CadeiraForm(request.POST or request.FILES or None, instance=cadeira)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:licenciatura'))
+
+    context = {'form': form, 'cadeira_id': cadeira_id}
+    return render(request, 'portfolio/editarCadeira.html', context)
 
 
-def editarProjeto_view(request):
+def apagarCadeira_view(request, cadeira_id):
+    cadeira = Cadeira.objects.get(id=cadeira_id)
+    cadeira.delete()
+    return HttpResponseRedirect(reverse('portfolio:licenciatura'))
+
+
+def editarProjeto_view(request, projeto_id):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('portfolio:login'))
 
-    return render(request, 'portfolio/editarProjeto.html')
+    projeto = Projeto.objects.get(id=projeto_id)
+    form = ProjetoForm(request.POST or request.FILES or None, instance=projeto)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:projetos'))
+
+    context = {'form': form, 'projeto_id': projeto_id}
+    return render(request, 'portfolio/editarProjeto.html', context)
+
+
+def apagarProjeto_view(request, projeto_id):
+    projeto = Projeto.objects.get(id=projeto_id)
+    projeto.delete()
+    return HttpResponseRedirect(reverse('portfolio:projetos'))
+
+
+def tempo_view(request):
+    return render(request, 'portfolio/tempo.html')
+
+

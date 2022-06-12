@@ -6,6 +6,23 @@
           padding: 0;
         }
     </style>
+        <script>
+            window.onload = function(){
+                tempo();
+            }
+
+            function tempo() {
+                let maxTemp = document.querySelector('.maxTemp');
+                let minTemp = document.querySelector('.minTemp');
+
+                fetch('//api.ipma.pt/open-data/forecast/meteorology/cities/daily/1110600.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        maxTemp.innerHTML = data['data'][0]['tMax'];
+                        minTemp.innerHTML = data['data'][0]['tMin'];
+                    })
+            }
+        </script>
     <section>
         {% load static %}
         <video src="{% static 'portfolio/images/hero.mp4' %}" muted autoplay loop></video>

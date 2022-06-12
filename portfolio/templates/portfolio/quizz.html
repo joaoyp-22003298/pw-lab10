@@ -5,7 +5,7 @@
         <legend>
             Quizz - PW
         </legend>
-        <form method="POST" class="formQuizz">
+        <form method="POST" class="formQuizz" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="estiloNome">
                 <label for="nome">Nome:</label>

@@ -1,10 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'portfolio/layout.html' %}
 
-</body>
-</html>
+{% block main %}
+    <style>
+        p{
+            padding: 5px;
+        }
+
+        label{
+            display: flex;
+        }
+    </style>
+	<h3>NovoPost</h3>
+    <br>
+    <form action="{% url 'portfolio:editarProjeto' projeto_id %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <a href="{% url 'portfolio:projetos' %}" role="button" class="btn btn-warning">Cancelar</a>
+        <input type="submit" value="Gravar">
+    </form>
+
+{% endblock %}

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{% static 'portfolio/css/licenciatura.css' %}">
     <link rel="stylesheet" href="{% static 'portfolio/css/projetos.css' %}">
     <link rel="stylesheet" href="{% static 'portfolio/css/login.css' %}">
+    <script src="{% static 'portfolio/js/javascript.js' %}"></script>
     <style>
         body{
             {% load static %}
@@ -28,6 +29,8 @@
     <div>
         João Yp
     </div>
+      <p style="margin-left: 15px">Max: <p class="maxTemp"></p></p>Cº
+      <p style="margin-left: 30px">Min: <p class="minTemp"></p></p>Cº
     <nav>
         <a href="{% url 'portfolio:home' %}">Home</a>
         <a href="{% url 'portfolio:apresentacao' %}">Apresentação</a>

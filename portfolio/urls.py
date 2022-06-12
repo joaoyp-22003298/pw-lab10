@@ -12,9 +12,11 @@ urlpatterns = [
     path('editarPost/<int:post_id>', views.editarPost_view, name='editarPost'),
     path('apagarPost/<int:post_id>', views.apagarPost_view, name='apagarPost'),
     path('novaCadeira', views.novaCadeira_view, name='novaCadeira'),
-    path('editarCadeira/<int:post_id>', views.editarCadeira_view, name='editarCadeira'),
+    path('editarCadeira/<int:cadeira_id>', views.editarCadeira_view, name='editarCadeira'),
+    path('apagarCadeira/<int:cadeira_id>', views.apagarCadeira_view, name='apagarCadeira'),
     path('novoProjeto', views.novoProjeto_view, name='novoProjeto'),
-    path('editarProjeto/<int:post_id>', views.editarProjeto_view, name='editarProjeto'),
+    path('editarProjeto/<int:projeto_id>', views.editarProjeto_view, name='editarProjeto'),
+    path('apagarProjeto/<int:projeto_id>', views.apagarProjeto_view, name='apagarProjeto'),
     path('Apresentacao', views.apresentacao_view, name='apresentacao'),
     path('licenciatura', views.licenciatura_view, name='licenciatura'),
     path('projetos', views.projetos_view, name='projetos'),
@@ -22,5 +24,6 @@ urlpatterns = [
     path('formacao', views.formacao_view, name='formacao'),
     path('login', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
+    path('tempo/', views.tempo_view, name='tempo'),
 ]
 

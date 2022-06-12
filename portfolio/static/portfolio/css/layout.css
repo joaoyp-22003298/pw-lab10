@@ -93,38 +93,3 @@ footer a{
   color: white;
   margin: 5px;
 }
-
-.container {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  padding: 25px 100px;
-}
-
-.container div {
-  float: left;
-  width: 300px;   height: 400px;
-  padding: 25px;  margin-bottom: 40px;
-  margin-left: 40px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 5px 5px 15px grey;
-}
-
-.projetos {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  padding: 25px 100px;
-  margin-top: 2em;
-}
-
-.projetos div {
-  float: left;
-  width: 300px;   height: 600px;
-  padding: 25px;  margin-bottom: 40px;
-  margin-left: 40px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 5px 5px 15px grey;
-}

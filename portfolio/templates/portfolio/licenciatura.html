@@ -10,70 +10,46 @@
     </div>
 
     <div class="container">
-      <div>
-        <h2>Algoritmia e Estruturas de Dados</h2>
+        {% for cadeira in cadeiras %}
+        <div>
+        <h2>{{ cadeira.nome }}</h2>
           <br>
           <p>
-              - Cadeira de programação em Java no 2º Semestre no 1º ano no curso
-              de Engenharia Informática.
+             {{ cadeira.descricao }}
           </p>
           <br>
           <p>
-              - Esta cadeira ensina a manipular as várias estruturas de dados com uma
-              programação orientada a objetos.
-              <br><br>
+              <br>
               <b>
-                 5.0 ECTS
+                  {{cadeira.ects}}
+              </b>
+              <br>
+              <br>
+              <b>
+                 Docente: {{ cadeira.professor}}
               </b>
               <br><br>
           </p>
-          {% load static %}
-          <img src="{% static 'portfolio/images/5stars.png' %}" alt="5stars"
-               style="margin-left: 25px; margin-top: 27px">
-      </div>
-      <div>
-        <h2>Computação Gráfica</h2>
-          <br>
-          <p>
-              - Cadeira de programação e manipulação de imagens em C# do 2º Semestre
-              no 2º ano no curso de Engenharia Informática.
-          </p>
-          <br>
-          <p>
-              - Esta cadeira ensina a manipular imagens através de vários
-              algoritmos matemáticos.
-              <br><br>
-              <b>
-                  5.0 ECTS
-              </b>
-          </p>
-          <br>
-          {% load static %}
-          <img src="{% static 'portfolio/images/5stars.png' %}" alt="5stars"
-               style="margin-left: 25px; margin-top: 55px">
-      </div>
-
-      <div>
-        <h2>Arquitetura Avançada de Computadores</h2>
-          <br>
-          <p>
-              - Cadeira focada em hardware e Arduino no 1º Semestre no 2º ano no curso
-              de Engenharia Informática.
-          </p>
-          <br>
-          <p>
-              - Esta cadeira ensina sobre o que acontece ao certo dentro um computador
-              e Arduino com base na linguagem C++.
-              <br><br>
-              <b>
-                  5.0 ECTS
-              </b>
-              <br><br>
-          </p>
-          {% load static %}
-          <img src="{% static 'portfolio/images/4stars.png' %}" alt="5stars"
-               style="margin-left: 25px; margin-top: 10px">
-      </div>
+            {% if cadeira.ranking <= 0 %}
+                <b>Rank:</b> 👎🏻
+            {% elif cadeira.ranking == 1 %}
+                <b>Rank:</b> ⭐
+            {% elif cadeira.ranking == 2 %}
+                <b>Rank:</b> ⭐⭐
+            {% elif cadeira.ranking == 3 %}
+                <b>Rank:</b> ⭐⭐⭐
+            {% elif cadeira.ranking == 4 %}
+                <b>Rank:</b> ⭐⭐⭐⭐
+            {% elif cadeira.ranking == 5 %}
+                <b>Rank:</b> ⭐⭐⭐⭐⭐
+            {% elif cadeira.ranking > 5 %}
+                <b>Rank:</b> ⭐⭐⭐⭐⭐
+            {% endif %}
+            <br><br>
+            <u><a href="{% url 'portfolio:editarCadeira' cadeira.id %}">Edit</a></u>
+            <u><a href="{% url 'portfolio:apagarCadeira' cadeira.id %}">Delete</a></u>
+        </div>
+        {% endfor %}
     </div>
 
 {% endblock %}

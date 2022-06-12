@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from django import forms
-from .models import Post
+from .models import Post, Cadeira, Projeto
 
 
 class PostForm(ModelForm):
@@ -18,3 +18,15 @@ class PostForm(ModelForm):
                 'class': 'form-control',
                 'placeholder': 'Título do Post'}),
         }
+
+
+class CadeiraForm(ModelForm):
+    class Meta:
+        model = Cadeira
+        fields = '__all__'
+
+
+class ProjetoForm(ModelForm):
+    class Meta:
+        model = Projeto
+        fields = '__all__'
