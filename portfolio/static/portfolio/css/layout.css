@@ -76,7 +76,7 @@ main {
 }
 
 footer {
-  height: 5vh;
+  height: 6vh;
   display:flex;
   justify-content: flex-end;
   padding: 0 2vw;
@@ -92,4 +92,12 @@ footer a{
   text-decoration: none;
   color: white;
   margin: 5px;
+}
+
+#clock{
+  margin-right: auto;
+  color: white;
+  border-style: solid;
+  border-radius: 40px;
+  padding: 10px;
 }
