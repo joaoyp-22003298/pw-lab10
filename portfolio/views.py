@@ -230,6 +230,9 @@ def editarCadeira_view(request, cadeira_id):
 
 
 def apagarCadeira_view(request, cadeira_id):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('portfolio:login'))
+
     cadeira = Cadeira.objects.get(id=cadeira_id)
     cadeira.delete()
     return HttpResponseRedirect(reverse('portfolio:licenciatura'))
@@ -251,12 +254,9 @@ def editarProjeto_view(request, projeto_id):
 
 
 def apagarProjeto_view(request, projeto_id):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('portfolio:login'))
+
     projeto = Projeto.objects.get(id=projeto_id)
     projeto.delete()
     return HttpResponseRedirect(reverse('portfolio:projetos'))
-
-
-def tempo_view(request):
-    return render(request, 'portfolio/tempo.html')
-
-
