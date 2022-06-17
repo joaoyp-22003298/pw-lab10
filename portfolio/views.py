@@ -31,17 +31,6 @@ def home_view(request):
     return render(request, 'portfolio/home.html', context)
 
 
-def apresentacao_view(request):
-    hoje = datetime.date.today()
-    nasc = datetime.date(1998, 7, 7)
-    anos = (hoje - nasc).days // 365
-
-    context = {
-        'anos': anos
-    }
-    return render(request, 'portfolio/apresentacao.html', context)
-
-
 def blog_view(request):
     context = {'posts': Post.objects.all()}
     return render(request, 'portfolio/blog.html', context)
@@ -134,7 +123,8 @@ def desenha_grafico_resultados(request):
         lista_pontuacao.append(person.pontuacao)
 
     plt.barh(lista_nomes, lista_pontuacao)
-    plt.ylabel("Pontuação")
+    plt.xlabel("Pontuações: ")
+    plt.ylabel("Nomes: ")
     plt.savefig('portfolio/static/portfolio/images/graf.png', bbox_inches='tight')
 
     plt.autoscale()
@@ -260,3 +250,7 @@ def apagarProjeto_view(request, projeto_id):
     projeto = Projeto.objects.get(id=projeto_id)
     projeto.delete()
     return HttpResponseRedirect(reverse('portfolio:projetos'))
+
+
+def labs_view(request):
+    return render(request, 'portfolio/labs.html')

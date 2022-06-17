@@ -40,3 +40,30 @@ section video{
 .perfil-image img{
     border-radius: 50%;
 }
+
+article.segundo {
+  height: 100vh;
+  background: transparent;
+  padding: 0 4vw;
+  text-align: center;
+  font-size: 2rem;
+}
+
+article.primeiro {
+  /* como tem menu e rodapé visíveis (10vh cada), define-se como altura 80vh. */
+  height: 20vh;
+  background-image: url("https://source.unsplash.com/XMFZqrGyV-Q");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  align-items: start;
+}
+
+article.segundo p{
+  margin-top: 100px;
+}
+
+article.segundo .sobre{
+    margin-top: 50px;
+}

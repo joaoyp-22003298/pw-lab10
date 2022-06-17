@@ -17,12 +17,12 @@ urlpatterns = [
     path('novoProjeto', views.novoProjeto_view, name='novoProjeto'),
     path('editarProjeto/<int:projeto_id>', views.editarProjeto_view, name='editarProjeto'),
     path('apagarProjeto/<int:projeto_id>', views.apagarProjeto_view, name='apagarProjeto'),
-    path('Apresentacao', views.apresentacao_view, name='apresentacao'),
     path('licenciatura', views.licenciatura_view, name='licenciatura'),
     path('projetos', views.projetos_view, name='projetos'),
     path('competencias', views.competencias_view, name='competencias'),
     path('formacao', views.formacao_view, name='formacao'),
     path('login', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
+    path('labs', views.labs_view, name='labs'),
 ]
 
