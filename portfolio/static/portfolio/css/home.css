@@ -42,11 +42,11 @@ section video{
 }
 
 article.segundo {
-  height: 100vh;
+  height: 32vh;
   background: transparent;
   padding: 0 4vw;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.6rem;
 }
 
 article.primeiro {
@@ -61,9 +61,14 @@ article.primeiro {
 }
 
 article.segundo p{
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 article.segundo .sobre{
     margin-top: 50px;
+}
+
+.videoHome{
+    text-align: center;
+    padding-bottom: 10vh;
 }
