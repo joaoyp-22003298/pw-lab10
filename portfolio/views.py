@@ -252,5 +252,5 @@ def apagarProjeto_view(request, projeto_id):
     return HttpResponseRedirect(reverse('portfolio:projetos'))
 
 
-def labs_view(request):
-    return render(request, 'portfolio/labs.html')
+def news_view(request):
+    return render(request, 'portfolio/news.html')

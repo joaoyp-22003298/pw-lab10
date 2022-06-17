@@ -1,0 +1,71 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    <style>
+        main{
+          padding: 20px;
+        }
+    </style>
+
+    <p><b class="espaco0"></b></p>
+    <br>
+    URL: <a id="noticia0" class="noticia0" target="_blank"></a><br>
+    <br>
+    <p class="summary0"></p>
+    <br>
+    Publicado a: <p class="publishedAt0"></p>
+    <br><br>
+
+    <p><b class="espaco1"></b></p>
+    <br>
+    URL: <a id="noticia1" class="noticia1" target="_blank"></a><br>
+    <br>
+    <p class="summary1"></p>
+    <br>
+    Publicado a: <p class="publishedAt1"></p>
+    <br><br>
+
+    <p><b class="espaco2"></b></p>
+    <br>
+    URL: <a id="noticia2" class="noticia2" target="_blank"></a><br>
+    <br>
+    <p class="summary2"></p>
+    <br>
+    Publicado a: <p class="publishedAt2"></p>
+    <br><br>
+
+    <p><b class="espaco3"></b></p>
+    <br>
+    URL: <a id="noticia3" class="noticia3" target="_blank"></a><br>
+    <br>
+    <p class="summary3"></p>
+    <br>
+    Publicado a: <p class="publishedAt3"></p>
+
+    <br><br>
+
+    <script>
+        function espaco() {
+            for (let i = 0; i < 10; i++) {
+                let espaco = document.querySelector('.espaco' + i);
+                let noticia = document.querySelector('.noticia' + i);
+                let summary = document.querySelector('.summary' + i);
+                let publishedAt = document.querySelector('.publishedAt' + i);
+
+                fetch('//api.spaceflightnewsapi.net/v3/articles?_limit=10')
+                    .then(response => response.json())
+                    .then(data => {
+                        espaco.innerHTML = data[i]['title'];
+                        noticia.innerHTML = data[i]['url'];
+                        summary.innerHTML = data[i]['summary'];
+                        publishedAt.innerHTML = data[i]['publishedAt'];
+
+                        let noticiaHREF = document.getElementById('noticia' + i);
+                        noticiaHREF.href = noticia.innerHTML;
+                    })
+            }
+        }
+        espaco();
+
+    </script>
+{% endblock %}
